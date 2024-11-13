@@ -14,14 +14,14 @@
         <!--Navbar-->
         <div class="Navbar">
             <a class="active" href="#Home">Home</a>
+            <!-- New section added -->
+            <a href="#Slideshow">Slideshow</a>
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <!-- Onclick and ondblclick functions added to open and close the contact form -->
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
-        <!--Breaks inserted to add space between navbar and the first heading-->
-        <br>
-        <br>
 
         <!--Background video-->
         <div id="Home">
@@ -49,6 +49,58 @@
             </strong>
         </div>
 
+        <!-- Slideshow section added -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background"> 
+                <div id="Slideshow_Container">
+                    <!-- Slide 1 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/personal_photo.png" alt="Picture of yourself">
+                        <div class="text">I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, and JS logos"> 
+                        <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- Slide 3 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/Python.png" alt="Python logo">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+                    <!-- Slide 4 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/C_Sharp_and_Dot_NET.png" alt="C# logo">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                    </div>
+                    <!-- Slide 5 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/SQL_and_Database.jpg" alt="SQL logo"> 
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+                    <!-- Slide 6 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_img/" src="img/Square Custom Picture.png" alt="Replace with a picture of your choosing"> 
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                    </div>
+                    <!-- Previous and next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br> <!-- Adds a space between the slideshow img/ and the dots -->
+                
+                <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(6)"></span> 
+                </div>
+            </div>
+        </div>
+
         <!--About section-->
         <div class="Row" id="About">
             <!--Left column-->
@@ -58,8 +110,7 @@
             <!--Right column-->
             <div class="Column_1">
                 <h1>About</h1>
-                <p>
-                    I am a passionate developer with experience in HTML, CSS, JavaScript, and Python. I enjoy building responsive, user-friendly websites and applications. In my spare time, I contribute to open-source projects and constantly learn new technologies to enhance my skills.
+                <p>I am a passionate developer with experience in HTML, CSS, JavaScript, and Python. I enjoy building responsive, user-friendly websites and applications. In my spare time, I contribute to open-source projects and constantly learn new technologies to enhance my skills.
                     <br>
                     <br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, C# and more. 
                     <br>
@@ -76,34 +127,32 @@
                 <p>
                     You can view my coding projects on my GitHub profile here:
                     <br>
-                    <p class="center"><a href="https://github.com/ralucaachitei1207/HTML-and-CSS-Projects.git" target="_blank">My Portfolio Github</a></p>
+                    <p class="center"><a href="https://github.com/ralucaachitei1207" target="_blank">My Portfolio Github</a></p>
                 </p>
             </div>
             <!--Right column-->
             <div class="Column_2">
-                <a href="https://github.com/ralucaachitei1207/HTML-and-CSS-Projects.git" target="_blank"><img src="img/GitHub.png" alt="GitHub Logo"></a>
+                <a href="https://github.com/ralucaachitei1207" target="_blank"><img src="img/GitHub.png" alt="GitHub Logo"></a>
             </div>
         </div>
 
-        <!--Contact section-->
-        <div class="Row" id="Contact">
-            <!--Contact image, left column-->
-            <div class="Column_2 Column_tall">
-                <img src="img/contact.png" alt="Contact_Image">
-            </div>
-            <!--Contact form, right column-->
-            <div class="Column_1 Column_tall">
-                <h1>Contact</h1>
+        <!-- Contact form -->
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="https://formspree.io/f/xeoqqwky"
-                        method="POST">
-                        <label>Name:</label>
+                <form action="https://formspree.io/f/xpwzrojo" method="POST" class="form-container">
+                        <h1>Contact</h1>
+                        <label for="name">Name:</label>
                         <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
+                        <label for="phone">Phone:</label>
+                      <input type="text" placeholder="Type your phone number here" name="phone">
+                        <label for="email">Email:</label>
                         <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
+                        <label for="message">Message:</label>
                         <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+                        <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
@@ -115,5 +164,7 @@
                 <br>
             </p>
         </footer>
+        <script src="JS/portfolio.js"></script>
     </body>
+
 </html>
